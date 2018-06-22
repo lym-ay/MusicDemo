@@ -1,0 +1,15 @@
+//
+//  MusicDemo_PrefixHeader.pch
+//  MusicDemo
+//
+//  Created by olami on 2018/6/22.
+//  Copyright © 2018年 VIA Technologies, Inc. & OLAMI Team. All rights reserved.
+//
+
+#ifndef MusicDemo_PrefixHeader_pch
+#define MusicDemo_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* MusicDemo_PrefixHeader_pch */
