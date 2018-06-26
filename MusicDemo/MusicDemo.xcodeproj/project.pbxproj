@@ -7,12 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AF1E7D6308D411D6838B614 /* libPods-MusicDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8DF4AF8AFA3AD8E4D640660 /* libPods-MusicDemo.a */; };
 		3201BFE920DCEE7800F6344B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3201BFE820DCEE7800F6344B /* AppDelegate.m */; };
 		3201BFEC20DCEE7800F6344B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3201BFEB20DCEE7800F6344B /* ViewController.m */; };
 		3201BFEF20DCEE7800F6344B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3201BFED20DCEE7800F6344B /* Main.storyboard */; };
 		3201BFF120DCEE7A00F6344B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3201BFF020DCEE7A00F6344B /* Assets.xcassets */; };
 		3201BFF420DCEE7A00F6344B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3201BFF220DCEE7A00F6344B /* LaunchScreen.storyboard */; };
 		3201BFF720DCEE7A00F6344B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3201BFF620DCEE7A00F6344B /* main.m */; };
+		3201C00020DCF1F600F6344B /* MusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3201BFFF20DCF1F600F6344B /* MusicViewController.m */; };
+		3201C00320E0840C00F6344B /* MusicData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3201C00220E0840C00F6344B /* MusicData.m */; };
+		3201C00620E0850600F6344B /* MusicViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3201C00520E0850600F6344B /* MusicViewModel.m */; };
+		3201C00920E0870C00F6344B /* MusicViewLocalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3201C00820E0870C00F6344B /* MusicViewLocalModel.m */; };
+		3201C00B20E096E300F6344B /* by.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3201C00A20E096E300F6344B /* by.mp3 */; };
+		32DF178C20E0C76C00C001E5 /* MP3Sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32DF178B20E0C76C00C001E5 /* MP3Sample.mp3 */; };
+		32DF178E20E0C9A700C001E5 /* zj.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32DF178D20E0C9A700C001E5 /* zj.mp3 */; };
+		32E3B8E020E1C1DE0004E64E /* MusicPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E3B8DF20E1C1DE0004E64E /* MusicPlayerController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +36,22 @@
 		3201BFF520DCEE7A00F6344B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3201BFF620DCEE7A00F6344B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3201BFFD20DCEFE000F6344B /* MusicDemo_PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicDemo_PrefixHeader.pch; sourceTree = "<group>"; };
+		3201BFFE20DCF1F600F6344B /* MusicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicViewController.h; sourceTree = "<group>"; };
+		3201BFFF20DCF1F600F6344B /* MusicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicViewController.m; sourceTree = "<group>"; };
+		3201C00120E0840C00F6344B /* MusicData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicData.h; sourceTree = "<group>"; };
+		3201C00220E0840C00F6344B /* MusicData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicData.m; sourceTree = "<group>"; };
+		3201C00420E0850600F6344B /* MusicViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicViewModel.h; sourceTree = "<group>"; };
+		3201C00520E0850600F6344B /* MusicViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicViewModel.m; sourceTree = "<group>"; };
+		3201C00720E0870C00F6344B /* MusicViewLocalModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicViewLocalModel.h; sourceTree = "<group>"; };
+		3201C00820E0870C00F6344B /* MusicViewLocalModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicViewLocalModel.m; sourceTree = "<group>"; };
+		3201C00A20E096E300F6344B /* by.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = by.mp3; sourceTree = "<group>"; };
+		32DF178B20E0C76C00C001E5 /* MP3Sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MP3Sample.mp3; sourceTree = "<group>"; };
+		32DF178D20E0C9A700C001E5 /* zj.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zj.mp3; sourceTree = "<group>"; };
+		32E3B8DE20E1C1DE0004E64E /* MusicPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicPlayerController.h; sourceTree = "<group>"; };
+		32E3B8DF20E1C1DE0004E64E /* MusicPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicPlayerController.m; sourceTree = "<group>"; };
+		37CD3EEA729F910B06CC6CCA /* Pods-MusicDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicDemo/Pods-MusicDemo.release.xcconfig"; sourceTree = "<group>"; };
+		BB04C98A93D13AF1D587B2E8 /* Pods-MusicDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusicDemo/Pods-MusicDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		D8DF4AF8AFA3AD8E4D640660 /* libPods-MusicDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MusicDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,17 +59,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AF1E7D6308D411D6838B614 /* libPods-MusicDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A9575F7B0B0196F8A1CC69D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8DF4AF8AFA3AD8E4D640660 /* libPods-MusicDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3201BFDB20DCEE7700F6344B = {
 			isa = PBXGroup;
 			children = (
+				32DF178D20E0C9A700C001E5 /* zj.mp3 */,
+				32DF178B20E0C76C00C001E5 /* MP3Sample.mp3 */,
+				3201C00A20E096E300F6344B /* by.mp3 */,
 				3201BFE620DCEE7700F6344B /* MusicDemo */,
 				3201BFE520DCEE7700F6344B /* Products */,
+				E91920AB2012582B9FF05938 /* Pods */,
+				0A9575F7B0B0196F8A1CC69D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,8 +108,27 @@
 				3201BFF520DCEE7A00F6344B /* Info.plist */,
 				3201BFF620DCEE7A00F6344B /* main.m */,
 				3201BFFD20DCEFE000F6344B /* MusicDemo_PrefixHeader.pch */,
+				3201BFFE20DCF1F600F6344B /* MusicViewController.h */,
+				3201BFFF20DCF1F600F6344B /* MusicViewController.m */,
+				3201C00120E0840C00F6344B /* MusicData.h */,
+				3201C00220E0840C00F6344B /* MusicData.m */,
+				3201C00420E0850600F6344B /* MusicViewModel.h */,
+				3201C00520E0850600F6344B /* MusicViewModel.m */,
+				3201C00720E0870C00F6344B /* MusicViewLocalModel.h */,
+				3201C00820E0870C00F6344B /* MusicViewLocalModel.m */,
+				32E3B8DE20E1C1DE0004E64E /* MusicPlayerController.h */,
+				32E3B8DF20E1C1DE0004E64E /* MusicPlayerController.m */,
 			);
 			path = MusicDemo;
+			sourceTree = "<group>";
+		};
+		E91920AB2012582B9FF05938 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BB04C98A93D13AF1D587B2E8 /* Pods-MusicDemo.debug.xcconfig */,
+				37CD3EEA729F910B06CC6CCA /* Pods-MusicDemo.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,6 +138,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3201BFFA20DCEE7A00F6344B /* Build configuration list for PBXNativeTarget "MusicDemo" */;
 			buildPhases = (
+				EE490E7F603D79529A7AF529 /* [CP] Check Pods Manifest.lock */,
 				3201BFE020DCEE7700F6344B /* Sources */,
 				3201BFE120DCEE7700F6344B /* Frameworks */,
 				3201BFE220DCEE7700F6344B /* Resources */,
@@ -131,18 +190,47 @@
 			buildActionMask = 2147483647;
 			files = (
 				3201BFF420DCEE7A00F6344B /* LaunchScreen.storyboard in Resources */,
+				32DF178C20E0C76C00C001E5 /* MP3Sample.mp3 in Resources */,
+				32DF178E20E0C9A700C001E5 /* zj.mp3 in Resources */,
 				3201BFF120DCEE7A00F6344B /* Assets.xcassets in Resources */,
 				3201BFEF20DCEE7800F6344B /* Main.storyboard in Resources */,
+				3201C00B20E096E300F6344B /* by.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EE490E7F603D79529A7AF529 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MusicDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3201BFE020DCEE7700F6344B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3201C00620E0850600F6344B /* MusicViewModel.m in Sources */,
+				3201C00020DCF1F600F6344B /* MusicViewController.m in Sources */,
+				3201C00920E0870C00F6344B /* MusicViewLocalModel.m in Sources */,
+				3201C00320E0840C00F6344B /* MusicData.m in Sources */,
+				32E3B8E020E1C1DE0004E64E /* MusicPlayerController.m in Sources */,
 				3201BFEC20DCEE7800F6344B /* ViewController.m in Sources */,
 				3201BFF720DCEE7A00F6344B /* main.m in Sources */,
 				3201BFE920DCEE7800F6344B /* AppDelegate.m in Sources */,
@@ -213,7 +301,8 @@
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREFIX_HEADER = MusicDemo_PrefixHeader.pch;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MusicDemo/MusicDemo_PrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -271,7 +360,8 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = MusicDemo_PrefixHeader.pch;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MusicDemo/MusicDemo_PrefixHeader.pch;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -287,12 +377,13 @@
 		};
 		3201BFFB20DCEE7A00F6344B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB04C98A93D13AF1D587B2E8 /* Pods-MusicDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3CAWU27LX9;
 				INFOPLIST_FILE = MusicDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,12 +396,13 @@
 		};
 		3201BFFC20DCEE7A00F6344B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37CD3EEA729F910B06CC6CCA /* Pods-MusicDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3CAWU27LX9;
 				INFOPLIST_FILE = MusicDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
