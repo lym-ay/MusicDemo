@@ -184,12 +184,16 @@
     NSInteger min = curTime/60;
     NSInteger sec = (NSInteger)curTime%60;
     _eclipseTime.text = [NSString stringWithFormat:@"%02ld:%02ld",min,sec];
+    [self.musicPlayer seekStart];
 }
 
 - (void)touchDown{
     if (self.musicPlayer.songStatus == PlayStatus) {
         //self.musicPlayer.currentTime = _sliderButton.value;
-        [self.timer setFireDate:[NSDate distantPast]];
+        //[self.timer setFireDate:[NSDate distantPast]];
+        //NSLog(@"slider buuton is %f",_sliderButton.value);
+        [self.musicPlayer seekToTime:_sliderButton.value];
+        [self.musicPlayer seekEnd];
     }
 }
 
@@ -202,6 +206,7 @@
     self.sliderButton.maximumValue= duration;
     self.sliderButton.minimumValue = 0;
     self.sliderButton.value = time;
+    NSLog(@"time is %f",self.sliderButton.value);
     
     
     NSTimeInterval curTime = time;
@@ -210,6 +215,11 @@
     self.eclipseTime.text =  [NSString stringWithFormat:@"%02ld:%02ld",min1,sec1];
    
     
+}
+
+- (void)playbackComplete{
+    [self.musicPlayer nextSong];
+    [self updateUI];
 }
 
 

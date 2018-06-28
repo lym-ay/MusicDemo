@@ -24,4 +24,7 @@
 - (void)stop;
 - (void)prevSong;
 - (void)nextSong;
+- (void)seekToTime:(NSTimeInterval)time;
+- (void)seekStart;
+- (void)seekEnd;
 @end

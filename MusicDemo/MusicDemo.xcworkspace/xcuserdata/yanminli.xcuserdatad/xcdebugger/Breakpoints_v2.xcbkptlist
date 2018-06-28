@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicDemo/MusicViewLocalModel.m"
-            timestampString = "551857146.7927051"
+            timestampString = "551859989.661809"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicDemo/MusicViewLocalModel.m"
-            timestampString = "551857146.793558"
+            timestampString = "551859989.6622289"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "89"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicDemo/MusicNetPlayerController.m"
-            timestampString = "551857146.793932"
+            timestampString = "551859989.6623501"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicDemo/MusicNetPlayerController.m"
-            timestampString = "551857146.794192"
+            timestampString = "551859989.663002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicDemo/MusicNetPlayerController.m"
-            timestampString = "551857146.794265"
+            timestampString = "551859989.663345"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
             landmarkType = "7">
             <Locations>
@@ -137,12 +137,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicDemo/MusicViewController.m"
-            timestampString = "551857146.794333"
+            timestampString = "551859989.663658"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "-setCurrentTime:duration:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MusicDemo/MusicViewController.m"
+            timestampString = "551859989.663924"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "-touchDown"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
