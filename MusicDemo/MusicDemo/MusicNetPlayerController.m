@@ -57,6 +57,7 @@ static MusicNetPlayerController *_instance = nil;
     AVAsset *asset = [AVURLAsset URLAssetWithURL:data.songUrl options:nil];
     self.playerItem = [AVPlayerItem playerItemWithAsset:asset automaticallyLoadedAssetKeys:keys];
     self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
+    self.player.volume = 0.3;
     [self.playerItem addObserver:self forKeyPath:@"status" options:0 context:&PlayerItemStatusContext];
     
 }
@@ -106,6 +107,7 @@ static MusicNetPlayerController *_instance = nil;
     __weak MusicNetPlayerController *weakSelf = self;
     void (^callback)(CMTime time) = ^(CMTime time){
         NSTimeInterval currentTime = CMTimeGetSeconds(time);
+        NSLog(@"time is %f",currentTime);
         NSTimeInterval duration = CMTimeGetSeconds(weakSelf.playerItem.duration);
         [weakSelf.delegate setCurrentTime:currentTime duration:duration];
     };
@@ -114,6 +116,7 @@ static MusicNetPlayerController *_instance = nil;
 }
 
 - (void)addItemEndObserverForPlayerItem{
+    NSLog(@"endObserver");
     NSString *name = AVPlayerItemDidPlayToEndTimeNotification;
     NSOperationQueue *queue = [NSOperationQueue mainQueue];
     __weak MusicNetPlayerController *weakSelf = self;
@@ -146,7 +149,12 @@ static MusicNetPlayerController *_instance = nil;
     }else{
         _index--;
     }
-    
+    //[self.player pause];
+    if (self.timeObserver) {
+        [self.player removeTimeObserver:self.timeObserver];
+        self.timeObserver = nil;
+    }
+   
     [self playIndex:_index];
 }
 
@@ -157,7 +165,11 @@ static MusicNetPlayerController *_instance = nil;
     }else{
         _index++;
     }
-    
+     //[self.player pause];
+    if (self.timeObserver) {
+        [self.player removeTimeObserver:self.timeObserver];
+        self.timeObserver = nil;
+    }
     [self playIndex:_index];
 }
 

@@ -203,6 +203,7 @@
     self.sliderButton.minimumValue = 0;
     self.sliderButton.value = time;
     
+    
     NSTimeInterval curTime = time;
     NSInteger min1 = curTime/60;
     NSInteger sec1 = (NSInteger)curTime%60;

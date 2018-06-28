@@ -25,6 +25,7 @@
 		32E3B8E320E21E1E0004E64E /* MusicNetPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E3B8E220E21E1E0004E64E /* MusicNetPlayerController.m */; };
 		32E3B8E520E48D8A0004E64E /* mo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 32E3B8E420E48D890004E64E /* mo1.jpg */; };
 		32E3B8E720E48D8F0004E64E /* mo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 32E3B8E620E48D8E0004E64E /* mo2.jpg */; };
+		32E3B8E920E4ABC00004E64E /* mo3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 32E3B8E820E4ABC00004E64E /* mo3.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		32E3B8E220E21E1E0004E64E /* MusicNetPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicNetPlayerController.m; sourceTree = "<group>"; };
 		32E3B8E420E48D890004E64E /* mo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mo1.jpg; sourceTree = "<group>"; };
 		32E3B8E620E48D8E0004E64E /* mo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mo2.jpg; sourceTree = "<group>"; };
+		32E3B8E820E4ABC00004E64E /* mo3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mo3.jpg; sourceTree = "<group>"; };
 		37CD3EEA729F910B06CC6CCA /* Pods-MusicDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicDemo/Pods-MusicDemo.release.xcconfig"; sourceTree = "<group>"; };
 		BB04C98A93D13AF1D587B2E8 /* Pods-MusicDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusicDemo/Pods-MusicDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D8DF4AF8AFA3AD8E4D640660 /* libPods-MusicDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MusicDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +86,7 @@
 		3201BFDB20DCEE7700F6344B = {
 			isa = PBXGroup;
 			children = (
+				32E3B8E820E4ABC00004E64E /* mo3.jpg */,
 				32E3B8E620E48D8E0004E64E /* mo2.jpg */,
 				32E3B8E420E48D890004E64E /* mo1.jpg */,
 				32DF178D20E0C9A700C001E5 /* zj.mp3 */,
@@ -203,6 +206,7 @@
 				3201BFF420DCEE7A00F6344B /* LaunchScreen.storyboard in Resources */,
 				32DF178C20E0C76C00C001E5 /* MP3Sample.mp3 in Resources */,
 				32DF178E20E0C9A700C001E5 /* zj.mp3 in Resources */,
+				32E3B8E920E4ABC00004E64E /* mo3.jpg in Resources */,
 				3201BFF120DCEE7A00F6344B /* Assets.xcassets in Resources */,
 				32E3B8E720E48D8F0004E64E /* mo2.jpg in Resources */,
 				32E3B8E520E48D8A0004E64E /* mo1.jpg in Resources */,

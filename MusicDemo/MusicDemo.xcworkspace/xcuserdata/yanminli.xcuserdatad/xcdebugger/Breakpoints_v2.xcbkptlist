@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicDemo/MusicViewLocalModel.m"
-            timestampString = "551851438.321172"
+            timestampString = "551857146.7927051"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "-getLocalSong:complete:"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicDemo/MusicViewLocalModel.m"
-            timestampString = "551851438.3215539"
+            timestampString = "551857146.793558"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "-getLocalSong:complete:"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicDemo/MusicNetPlayerController.m"
-            timestampString = "551851438.321659"
+            timestampString = "551857146.793932"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicDemo/MusicNetPlayerController.m"
-            timestampString = "551851438.321992"
+            timestampString = "551857146.794192"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicDemo/MusicNetPlayerController.m"
-            timestampString = "551851438.322057"
+            timestampString = "551857146.794265"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
             landmarkType = "7">
             <Locations>
@@ -137,11 +137,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicDemo/MusicViewController.m"
-            timestampString = "551851438.3221149"
+            timestampString = "551857146.794333"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "-setCurrentTime:duration:"
             landmarkType = "7">
          </BreakpointContent>

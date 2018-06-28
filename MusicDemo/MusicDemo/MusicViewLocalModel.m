@@ -48,7 +48,7 @@
     data1.songName =@"阴天";
     data1.songSinger = @"莫文蔚";
     data1.songUrl = url1;
-    data1.songAlbum = @"hello mo";
+    data1.songAlbum = @"you can";
     NSString *picPath1 = [[NSBundle mainBundle] pathForResource:@"mo2" ofType:@"jpg"];
     UIImage *img1 = [UIImage imageNamed:picPath1];
     data1.songImage = img1;
@@ -58,11 +58,22 @@
     data2.songName =@"盛夏的果实";
     data2.songSinger = @"莫文蔚";
     data2.songUrl = url2;
-    data2.songAlbum = @"莫文蔚的歌";
+    data2.songAlbum = @"新曲-精选全纪录";
     NSString *picPath2 = [[NSBundle mainBundle] pathForResource:@"mo1" ofType:@"jpg"];
     UIImage *img2 = [UIImage imageNamed:picPath2];
     data2.songImage = img2;
     [self.musicDataArray addObject:data2];
+    
+    NSURL *url3 = [NSURL URLWithString:@"http://dl.stream.qqmusic.qq.com/C400004MnWHW4IdbcT.m4a?vkey=89969EAF699E8D6AC50CF72FE5B56FF4411C999CCC177213B204384A68B311AF9B7CA9251A93B1A4B96949A204A1B25A0CBBAC831FBD1C06&guid=9611377172&uin=0&fromtag=66"];
+    MusicData *data3 = [[MusicData alloc] init];
+    data3.songName =@"如果你是李白";
+    data3.songSinger = @"莫文蔚";
+    data3.songUrl = url3;
+    data3.songAlbum = @"[i]";
+    NSString *picPath3 = [[NSBundle mainBundle] pathForResource:@"mo3" ofType:@"jpg"];
+    UIImage *img3 = [UIImage imageNamed:picPath3];
+    data3.songImage = img3;
+    [self.musicDataArray addObject:data3];
 }
 - (void)getLocalSong:(NSString *)name complete:(completeSearch)block{
    
