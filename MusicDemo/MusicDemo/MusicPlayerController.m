@@ -111,12 +111,7 @@ static MusicPlayerController* _instance = nil;
     _audioPlayer.currentTime = currentTime;
 }
 
-- (void)playAtTime:(NSTimeInterval)time{
-   [_audioPlayer playAtTime:time];
-    
-}
+ 
 
-- (NSTimeInterval)deviceTime{
-    return _audioPlayer.deviceCurrentTime;
-}
+ 
 @end

@@ -18,10 +18,12 @@
 
 
 -(void)processMusic:(completeSearch)block{
-    NSArray *arry = @[@"zj",@"MP3Sample",@"by"];
-    for (NSString *name in arry) {
-        [self getLocalSong:name complete:block];
-    }
+//    NSArray *arry = @[@"zj",@"MP3Sample",@"by"];
+//    for (NSString *name in arry) {
+//        [self getLocalSong:name complete:block];
+//    }
+    [self getNetMusic];
+    block(YES);
 }
 
 - (void)getLibrarySong{
@@ -40,7 +42,28 @@
     //    }
 }
 
-
+- (void)getNetMusic{
+    NSURL *url1 = [NSURL URLWithString:@"http://dl.stream.qqmusic.qq.com/C4000031PqYN0sj8K3.m4a?vkey=7489DD29B94AEF783AEF6F95CFF528DC6F30578D5AF485B0DA5524D6C86BAF2674CD0EB85414F949AF9347250708DEB544381F237BC46291&guid=3708371200&uin=0&fromtag=66"];
+    MusicData *data1 = [[MusicData alloc] init];
+    data1.songName =@"阴天";
+    data1.songSinger = @"莫文蔚";
+    data1.songUrl = url1;
+    data1.songAlbum = @"hello mo";
+    NSString *picPath1 = [[NSBundle mainBundle] pathForResource:@"mo2" ofType:@"jpg"];
+    UIImage *img1 = [UIImage imageNamed:picPath1];
+    data1.songImage = img1;
+    [self.musicDataArray addObject:data1];
+    NSURL *url2 = [NSURL URLWithString:@"http://fs.w.kugou.com/201806281116/cfd2cd098e3ef708ad0d08039ec901b9/G002/M02/0B/05/Qg0DAFS4VaqAVV2hADx4AKxhoHg263.mp3"];
+    MusicData *data2 = [[MusicData alloc] init];
+    data2.songName =@"盛夏的果实";
+    data2.songSinger = @"莫文蔚";
+    data2.songUrl = url2;
+    data2.songAlbum = @"莫文蔚的歌";
+    NSString *picPath2 = [[NSBundle mainBundle] pathForResource:@"mo1" ofType:@"jpg"];
+    UIImage *img2 = [UIImage imageNamed:picPath2];
+    data2.songImage = img2;
+    [self.musicDataArray addObject:data2];
+}
 - (void)getLocalSong:(NSString *)name complete:(completeSearch)block{
    
     NSURL *url = [[NSBundle mainBundle] URLForResource:name withExtension:@"mp3"];

@@ -10,8 +10,9 @@
 #import "MusicViewModel.h"
 #import "MusicViewLocalModel.h"
 #import "MusicPlayerController.h"
+#import "MusicNetPlayerController.h"
 
-@interface MusicViewController ()
+@interface MusicViewController ()<MusicNetPlayerControllerDelegate>
 @property (nonatomic, strong) MusicViewModel *viewModel;
 @property (weak, nonatomic) IBOutlet UILabel *songName;
 @property (weak, nonatomic) IBOutlet UILabel *songSingerAlbum;
@@ -23,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UISlider *sliderButton;
 
 @property (strong, nonatomic) NSTimer *timer;
+
+@property (strong, nonatomic) MusicNetPlayerController *musicPlayer;
 
 
 
@@ -39,13 +42,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _viewModel = [[MusicViewLocalModel alloc] init];
-    
+    self.musicPlayer = [MusicNetPlayerController getInstance];
+    self.musicPlayer.delegate = self;
     __weak MusicViewController *weakSelf = self;
     [_viewModel processMusic:^(BOOL result) {
         if (result) {
-            [MusicPlayerController getInstance].musicDataArray = weakSelf.viewModel.musicDataArray;
-            if ([MusicPlayerController getInstance].songStatus == StopStatus) {
-                [[MusicPlayerController getInstance] playIndex:0];
+            self.musicPlayer.musicDataArray = weakSelf.viewModel.musicDataArray;
+            if (self.musicPlayer.songStatus == StopStatus) {
+                [self.musicPlayer playIndex:0];
             }
             
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -72,8 +76,8 @@
 }
 
 - (void)setupUI{
-    if ([MusicPlayerController getInstance].songStatus == StopStatus ||
-        [MusicPlayerController getInstance].songStatus == PlayStatus ) {
+    if (self.musicPlayer.songStatus == StopStatus ||
+        self.musicPlayer.songStatus == PlayStatus ) {
         [_playButton setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
     }else {
         [_playButton setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
@@ -85,12 +89,12 @@
 
 
 - (void)updateUI{
-    NSUInteger index = [MusicPlayerController getInstance].index;
+    NSUInteger index = self.musicPlayer.index;
     
     MusicData *data = _viewModel.musicDataArray[index];
     _songName.text = data.songName;
     
-    NSString *title = [NSString stringWithFormat:@"%@ - %@",data.songSinger,data.songName];
+    NSString *title = [NSString stringWithFormat:@"%@ - %@",data.songSinger,data.songAlbum];
     _songSingerAlbum.text = title;
     
     if (data.songImage) {
@@ -101,12 +105,12 @@
  
     _totalTimeLabel.text = [self duration];
     
-    _sliderButton.maximumValue = [MusicPlayerController getInstance].duration;
-    _sliderButton.minimumValue = 0;
+//    _sliderButton.maximumValue = self.musicPlayer.duration;
+//    _sliderButton.minimumValue = 0;
     
     
     //启动计时器
-    [self.timer setFireDate:[NSDate distantPast]];
+    //[self.timer setFireDate:[NSDate distantPast]];
 }
 
 - (NSTimer *)timer{
@@ -123,25 +127,25 @@
 }
 
 - (IBAction)prevSong:(id)sender {
-    [[MusicPlayerController getInstance] prevSong];
+    [self.musicPlayer prevSong];
     [self updateUI];
     
     
 }
 
 - (IBAction)playSong:(id)sender {
-    if ([MusicPlayerController getInstance].songStatus == PlayStatus) {
+    if (self.musicPlayer.songStatus == PlayStatus) {
         [_playButton setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
-    }else if ([MusicPlayerController getInstance].songStatus == PauseStatus){
+    }else if (self.musicPlayer.songStatus == PauseStatus){
          [_playButton setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
     }
     
-    [[MusicPlayerController getInstance] pause];
+    [self.musicPlayer pause];
 }
 
 
 - (IBAction)nextSong:(id)sender {
-    [[MusicPlayerController getInstance] nextSong];
+    [self.musicPlayer nextSong];
     [self updateUI];
 }
 - (IBAction)heartSong:(id)sender {
@@ -149,30 +153,32 @@
 }
 
 - (NSString*)duration{
-    NSTimeInterval totalTime = [MusicPlayerController getInstance].duration;
-    NSInteger min = totalTime/60;
-    NSInteger sec = (NSInteger)totalTime%60;
-    
-    return [NSString stringWithFormat:@"%02ld:%02ld",min,sec];
+//    NSTimeInterval totalTime = self.musicPlayer.duration;
+//    NSInteger min = totalTime/60;
+//    NSInteger sec = (NSInteger)totalTime%60;
+//
+//    return [NSString stringWithFormat:@"%02ld:%02ld",min,sec];
+    return nil;
     
 }
 
 - (NSString *)currentTime{
-    NSTimeInterval curTime = [MusicPlayerController getInstance].currentTime;
-    NSInteger min = curTime/60;
-    NSInteger sec = (NSInteger)curTime%60;
-    return [NSString stringWithFormat:@"%02ld:%02ld",min,sec];
+//    NSTimeInterval curTime = self.musicPlayer.currentTime;
+//    NSInteger min = curTime/60;
+//    NSInteger sec = (NSInteger)curTime%60;
+//    return [NSString stringWithFormat:@"%02ld:%02ld",min,sec];
+    return nil;
 }
 
 
 - (void)timerAction{
-    self.eclipseTime.text = [self currentTime];
-    self.sliderButton.value = [MusicPlayerController getInstance].currentTime;
+//    self.eclipseTime.text = [self currentTime];
+//    self.sliderButton.value = self.musicPlayer.currentTime;
     
 }
 
 - (void)touchUp{
-    [self.timer setFireDate:[NSDate distantFuture]];//暂停定时器
+    //[self.timer setFireDate:[NSDate distantFuture]];//暂停定时器
     //[self.timer invalidate];
     NSTimeInterval curTime = _sliderButton.value;
     NSInteger min = curTime/60;
@@ -181,11 +187,32 @@
 }
 
 - (void)touchDown{
-    if ([MusicPlayerController getInstance].songStatus == PlayStatus) {
-       [MusicPlayerController getInstance].currentTime = _sliderButton.value;
+    if (self.musicPlayer.songStatus == PlayStatus) {
+        //self.musicPlayer.currentTime = _sliderButton.value;
         [self.timer setFireDate:[NSDate distantPast]];
     }
 }
+
+- (void)setCurrentTime:(NSTimeInterval)time duration:(NSTimeInterval)duration{
+    NSTimeInterval totalTime = duration;
+    NSInteger min = totalTime/60;
+    NSInteger sec = (NSInteger)totalTime%60;
+    self.totalTimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld",min,sec];
+    
+    self.sliderButton.maximumValue= duration;
+    self.sliderButton.minimumValue = 0;
+    self.sliderButton.value = time;
+    
+    NSTimeInterval curTime = time;
+    NSInteger min1 = curTime/60;
+    NSInteger sec1 = (NSInteger)curTime%60;
+    self.eclipseTime.text =  [NSString stringWithFormat:@"%02ld:%02ld",min1,sec1];
+   
+    
+}
+
+
+ 
 
 
 @end

@@ -1,5 +1,5 @@
 //
-//  MusicPlayerController.h
+//  MusicNetPlayerController.h
 //  MusicDemo
 //
 //  Created by olami on 2018/6/26.
@@ -8,20 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
- 
+@protocol MusicNetPlayerControllerDelegate
+- (void)setCurrentTime:(NSTimeInterval)time duration:(NSTimeInterval)duration;
+- (void)playbackComplete;
+@end;
 
-@interface MusicPlayerController : NSObject
-+(MusicPlayerController *)getInstance;
+@interface MusicNetPlayerController : NSObject
++(MusicNetPlayerController *)getInstance;
 @property (nonatomic, copy) NSArray *musicDataArray;
 @property (nonatomic, assign) SongStatus songStatus;
 @property (nonatomic, assign) NSUInteger index;//当前播放歌曲的索引值
-@property (nonatomic, assign) NSTimeInterval duration;//歌曲的长度
-@property (nonatomic, assign) NSTimeInterval currentTime;//当前播放的时间
+@property (nonatomic, weak) id<MusicNetPlayerControllerDelegate> delegate;
 - (void)playIndex:(NSUInteger) index;
 - (void)pause;
 - (void)stop;
 - (void)prevSong;
 - (void)nextSong;
- 
-
 @end
