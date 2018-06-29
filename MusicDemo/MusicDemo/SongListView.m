@@ -9,9 +9,9 @@
 #import "SongListView.h"
 #import "MusicData.h"
 
-@interface SongListView()
-//<UITableViewDelegate,UITableViewDataSource>
-@property UITableView *tableView;
+@interface SongListView()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UIView  *backView;
 @end
 
 @implementation SongListView
@@ -26,14 +26,28 @@
 
 
 - (void)setupUI{
-    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapView)];
-    [self addGestureRecognizer:tap];
+    self.backgroundColor = [UIColor clearColor];
     
-//    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.frame.origin.y-30, self.frame.size.width, self.frame.size.height)];
-//    [self addSubview:_tableView];
-//    _tableView.delegate  = self;
-//    _tableView.dataSource = self;
+    _backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+     self.backView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
+    [self addSubview:self.backView];
+   
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapView)];
+    [self.backView addGestureRecognizer:tap];
+    
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height/3, self.frame.size.width, 60)];
+    label.text = @"歌曲列表";
+    label.backgroundColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:label];
+    
+    
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.frame.size.height/3+60, self.frame.size.width, self.frame.size.height)];
+    [self addSubview:_tableView];
+    _tableView.delegate  = self;
+    _tableView.dataSource = self;
     
     
     
@@ -57,5 +71,34 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _musicDataArray.count;
 }
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"songcell"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"songcell"];
+        MusicData *data = self.musicDataArray[indexPath.row];
+        NSString *title = [NSString stringWithFormat:@"%@ - %@",data.songName,data.songSinger];
+        cell.textLabel.text = title;
+        
+    }
+    //cell选中效果
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    return cell;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+ 
+    
+    return 50;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.delegate selectCell:indexPath.row];
+}
+
+
 
 @end

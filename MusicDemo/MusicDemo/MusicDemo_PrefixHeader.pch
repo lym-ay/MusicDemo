@@ -24,6 +24,12 @@ typedef NS_ENUM(NSUInteger, SongStatus) {
     StopStatus
 };
 
+typedef NS_ENUM(NSUInteger, SongCircle) {
+   Single,
+   Circle,
+   Random
+};
+
 #define SCREEN_WIDTH    ([[UIScreen mainScreen] bounds].size.width)
 #define SCREEN_HEIGHT   ([[UIScreen mainScreen] bounds].size.height)
 

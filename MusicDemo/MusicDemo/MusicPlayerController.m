@@ -38,6 +38,7 @@ static const NSString *PlayerItemStatusContext;
 
 
 - (void)playIndex:(NSUInteger)index{
+    [self removeAllObservers];
     MusicData *data = self.musicDataArray[index];
     _index = index;
     NSArray *keys = @[
@@ -120,12 +121,11 @@ static const NSString *PlayerItemStatusContext;
 }
 
 - (void)removeAllObservers{
-    [self.playerItem removeObserver:self forKeyPath:@"status"];
-    [self.playerItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
-    [self.playerItem removeObserver:self forKeyPath:@"playbackBufferEmpty"];
-     [self.playerItem removeObserver:self forKeyPath:@"playbackLikelyToKeepUp"];
-    
-    if (self.timeObserver) {
+   if (self.timeObserver) {
+        [self.playerItem removeObserver:self forKeyPath:@"status"];
+        [self.playerItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
+        [self.playerItem removeObserver:self forKeyPath:@"playbackBufferEmpty"];
+        [self.playerItem removeObserver:self forKeyPath:@"playbackLikelyToKeepUp"];
         [self.player removeTimeObserver:self.timeObserver];
         self.timeObserver = nil;
     }
@@ -188,8 +188,6 @@ static const NSString *PlayerItemStatusContext;
         _index--;
     }
  
-
-    [self removeAllObservers];
     [self playIndex:_index];
 }
 
@@ -200,8 +198,6 @@ static const NSString *PlayerItemStatusContext;
     }else{
         _index++;
     }
-    
-    [self removeAllObservers];
     [self playIndex:_index];
 }
 

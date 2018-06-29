@@ -116,6 +116,7 @@
                         <viewLayoutGuide key="safeArea" id="eR2-a9-7DC"/>
                     </view>
                     <connections>
+                        <outlet property="circleButton" destination="kYC-QZ-Fnp" id="60f-bh-XMX"/>
                         <outlet property="eclipseTime" destination="WUy-t6-PHH" id="b0o-kS-rzZ"/>
                         <outlet property="playButton" destination="dF6-ox-9bc" id="XGe-Xc-xMe"/>
                         <outlet property="progressBar" destination="11M-mv-pVs" id="RwQ-7n-Cmf"/>

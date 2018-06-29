@@ -12,7 +12,9 @@
 #import "MusicPlayerController.h"
 #import "SongListView.h"
 
-@interface MusicViewController ()<MusicPlayerControllerDelegate>
+@interface MusicViewController ()<MusicPlayerControllerDelegate,SongListViewDelegate>{
+    SongCircle buttonIndex;
+}
 @property (nonatomic, strong) MusicViewModel *viewModel;
 @property (weak, nonatomic) IBOutlet UILabel *songName;
 @property (weak, nonatomic) IBOutlet UILabel *songSingerAlbum;
@@ -24,8 +26,10 @@
 @property (weak, nonatomic) IBOutlet UISlider *sliderButton;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 
+@property (weak, nonatomic) IBOutlet UIButton *circleButton;
 @property (strong, nonatomic) MusicPlayerController *musicPlayer;
 @property (strong, nonatomic) SongListView *songListView;
+@property (strong, nonatomic) NSArray *circleButtonArray;
  
 @end
 
@@ -39,6 +43,13 @@
     // Do any additional setup after loading the view.
     
     [self.sliderButton setThumbImage:[UIImage imageNamed:@"nail"] forState:UIControlStateNormal];
+    
+    UIImage *img0 = [UIImage imageNamed:@"single"];
+    UIImage *img1 = [UIImage imageNamed:@"circle"];
+    UIImage *img2 = [UIImage imageNamed:@"random"];
+    _circleButtonArray = @[img0,img1,img2];
+    [_circleButton setImage:img0 forState:UIControlStateNormal];
+    buttonIndex = Single;
    
     
     _viewModel = [[MusicViewLocalModel alloc] init];
@@ -47,6 +58,7 @@
     self.musicPlayer.delegate = self;
     
     _songListView = [[SongListView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
+    _songListView.delegate = self;
     [self.view addSubview:_songListView];
     
     
@@ -117,6 +129,23 @@
 
 
 - (IBAction)circleButton:(id)sender {
+    switch (buttonIndex) {
+        case Single:
+            buttonIndex++;
+            break;
+        case Circle:
+            buttonIndex++;
+            break;
+        case Random:
+            buttonIndex = Single;
+            break;
+            
+        default:
+            break;
+    }
+    
+    UIImage *img = _circleButtonArray[buttonIndex];
+    [_circleButton setImage:img forState:UIControlStateNormal];
 }
 
 - (IBAction)prevSong:(id)sender {
@@ -141,9 +170,7 @@
     [self.musicPlayer nextSong];
     [self updateUI];
 }
-- (IBAction)heartSong:(id)sender {
-    
-}
+
 
 
 - (void)touchUp{
@@ -187,7 +214,24 @@
 }
 
 - (void)playbackComplete{
-    [self.musicPlayer nextSong];
+    switch (buttonIndex) {
+        case Single:
+            [self.musicPlayer playIndex:self.musicPlayer.index];
+            break;
+        case Circle:
+            [self.musicPlayer nextSong];
+            break;
+        case Random:{
+            int index = arc4random()%(_viewModel.musicDataArray.count);
+            [self.musicPlayer playIndex:index];
+        }
+           
+            break;
+            
+        default:
+            break;
+    }
+   
     dispatch_async(dispatch_get_main_queue(), ^{
          [self updateUI];
     });
@@ -212,6 +256,13 @@
     } completion:nil];
     
     
+}
+
+- (void)selectCell:(NSUInteger)index{
+    [self.musicPlayer playIndex:index];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self updateUI];
+    });
 }
 
 
