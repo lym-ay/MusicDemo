@@ -24,6 +24,9 @@ typedef NS_ENUM(NSUInteger, SongStatus) {
     StopStatus
 };
 
+#define SCREEN_WIDTH    ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT   ([[UIScreen mainScreen] bounds].size.height)
+
 #endif /* MusicDemo_PrefixHeader_pch */
 
 

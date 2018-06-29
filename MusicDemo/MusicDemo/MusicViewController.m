@@ -10,6 +10,7 @@
 #import "MusicViewModel.h"
 #import "MusicViewLocalModel.h"
 #import "MusicPlayerController.h"
+#import "SongListView.h"
 
 @interface MusicViewController ()<MusicPlayerControllerDelegate>
 @property (nonatomic, strong) MusicViewModel *viewModel;
@@ -24,7 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 
 @property (strong, nonatomic) MusicPlayerController *musicPlayer;
-
+@property (strong, nonatomic) SongListView *songListView;
+ 
 @end
 
 @implementation MusicViewController
@@ -40,12 +42,20 @@
    
     
     _viewModel = [[MusicViewLocalModel alloc] init];
+    
     self.musicPlayer = [[MusicPlayerController alloc] init];
     self.musicPlayer.delegate = self;
+    
+    _songListView = [[SongListView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.view addSubview:_songListView];
+    
+    
+    
     __weak MusicViewController *weakSelf = self;
     [_viewModel processMusic:^(BOOL result) {
         if (result) {
             weakSelf.musicPlayer.musicDataArray = weakSelf.viewModel.musicDataArray;
+            weakSelf.songListView.musicDataArray = weakSelf.viewModel.musicDataArray;
         if (weakSelf.musicPlayer.songStatus == StopStatus) {
                 [weakSelf.musicPlayer playIndex:0];
             }
@@ -100,13 +110,6 @@
     }else{
         [_songPic setImage:[UIImage imageNamed:@"songpic"]];
     }
- 
-   
-    
- 
-    
-    
- 
 }
 
 
@@ -141,9 +144,6 @@
 - (IBAction)heartSong:(id)sender {
     
 }
-
-
-
 
 
 - (void)touchUp{
@@ -206,6 +206,13 @@
     });
 }
  
+- (IBAction)songListView:(id)sender {
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [self.songListView setFrame:self.view.frame];
+    } completion:nil];
+    
+    
+}
 
 
 @end

@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ 音乐的播放的控制类
+ */
 @protocol MusicPlayerControllerDelegate
 - (void)setCurrentTime:(NSTimeInterval)time duration:(NSTimeInterval)duration;
 - (void)playbackComplete;

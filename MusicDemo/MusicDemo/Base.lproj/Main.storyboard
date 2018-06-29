@@ -104,9 +104,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Eo-ji-n7x">
-                                <rect key="frame" x="330" y="584" width="27" height="28"/>
+                                <rect key="frame" x="330" y="584" width="27" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="selectsong"/>
+                                <connections>
+                                    <action selector="songListView:" destination="bXd-1b-XWr" eventType="touchUpInside" id="lfY-Me-gzK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
