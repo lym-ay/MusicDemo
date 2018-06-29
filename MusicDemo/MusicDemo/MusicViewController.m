@@ -9,7 +9,6 @@
 #import "MusicViewController.h"
 #import "MusicViewModel.h"
 #import "MusicViewLocalModel.h"
-#import "MusicPlayerController.h"
 #import "MusicNetPlayerController.h"
 
 @interface MusicViewController ()<MusicNetPlayerControllerDelegate>{
@@ -43,6 +42,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _viewModel = [[MusicViewLocalModel alloc] init];
+
     self.musicPlayer = [MusicNetPlayerController getInstance];
     self.musicPlayer.delegate = self;
     __weak MusicViewController *weakSelf = self;
