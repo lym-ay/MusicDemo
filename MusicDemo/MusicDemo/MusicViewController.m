@@ -9,11 +9,9 @@
 #import "MusicViewController.h"
 #import "MusicViewModel.h"
 #import "MusicViewLocalModel.h"
-#import "MusicNetPlayerController.h"
+#import "MusicPlayerController.h"
 
-@interface MusicViewController ()<MusicNetPlayerControllerDelegate>{
-    BOOL isSeek;
-}
+@interface MusicViewController ()<MusicPlayerControllerDelegate>
 @property (nonatomic, strong) MusicViewModel *viewModel;
 @property (weak, nonatomic) IBOutlet UILabel *songName;
 @property (weak, nonatomic) IBOutlet UILabel *songSingerAlbum;
@@ -24,12 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
 @property (weak, nonatomic) IBOutlet UISlider *sliderButton;
 
-@property (strong, nonatomic) MusicNetPlayerController *musicPlayer;
-
-
-
-
-
+@property (strong, nonatomic) MusicPlayerController *musicPlayer;
 
 @end
 
@@ -42,15 +35,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _viewModel = [[MusicViewLocalModel alloc] init];
-
-    self.musicPlayer = [MusicNetPlayerController getInstance];
+    self.musicPlayer = [[MusicPlayerController alloc] init];
     self.musicPlayer.delegate = self;
     __weak MusicViewController *weakSelf = self;
     [_viewModel processMusic:^(BOOL result) {
         if (result) {
-            self.musicPlayer.musicDataArray = weakSelf.viewModel.musicDataArray;
-            if (self.musicPlayer.songStatus == StopStatus) {
-                [self.musicPlayer playIndex:0];
+            weakSelf.musicPlayer.musicDataArray = weakSelf.viewModel.musicDataArray;
+        if (weakSelf.musicPlayer.songStatus == StopStatus) {
+                [weakSelf.musicPlayer playIndex:0];
             }
             
             dispatch_async(dispatch_get_main_queue(), ^{

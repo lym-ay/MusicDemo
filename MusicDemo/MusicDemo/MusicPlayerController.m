@@ -6,32 +6,23 @@
 //  Copyright © 2018年 VIA Technologies, Inc. & OLAMI Team. All rights reserved.
 //
 
-#import "MusicNetPlayerController.h"
+#import "MusicPlayerController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "MusicData.h"
 
 
 static const NSString *PlayerItemStatusContext;
-@interface MusicNetPlayerController()
+@interface MusicPlayerController()
 @property (nonatomic, strong) AVPlayer *player;
 @property (strong, nonatomic) AVPlayerItem *playerItem;
 @property (strong, nonatomic) id timeObserver;
 @property (strong, nonatomic) id itemEndObserver;
+
 @end
 
 
-@implementation MusicNetPlayerController
+@implementation MusicPlayerController
 
-static MusicNetPlayerController *_instance = nil;
-
-+(MusicNetPlayerController *)getInstance{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _instance =[[self alloc] init];
-    });
-    
-    return _instance;
-}
 
 - (id)init{
     if (self = [super init]) {
@@ -44,6 +35,7 @@ static MusicNetPlayerController *_instance = nil;
 - (void)setMusicDataArray:(NSArray *)musicDataArray{
     _musicDataArray = [musicDataArray copy];
 }
+
 
 - (void)playIndex:(NSUInteger)index{
     MusicData *data = self.musicDataArray[index];
@@ -105,7 +97,7 @@ static MusicNetPlayerController *_instance = nil;
     CMTime interval = CMTimeMakeWithSeconds(1,  NSEC_PER_SEC);
     dispatch_queue_t queue = dispatch_get_main_queue();
     
-    __weak MusicNetPlayerController *weakSelf = self;
+    __weak MusicPlayerController *weakSelf = self;
     void (^callback)(CMTime time) = ^(CMTime time){
         NSTimeInterval currentTime = CMTimeGetSeconds(time);
         NSTimeInterval duration = CMTimeGetSeconds(weakSelf.playerItem.duration);
@@ -118,7 +110,7 @@ static MusicNetPlayerController *_instance = nil;
 - (void)addItemEndObserverForPlayerItem{
     NSString *name = AVPlayerItemDidPlayToEndTimeNotification;
     NSOperationQueue *queue = [NSOperationQueue mainQueue];
-    __weak MusicNetPlayerController *weakSelf = self;
+    __weak MusicPlayerController *weakSelf = self;
     self.itemEndObserver = [[NSNotificationCenter defaultCenter] addObserverForName:name object:self.playerItem queue:queue usingBlock:^(NSNotification * _Nonnull note) {
         [weakSelf.player seekToTime:kCMTimeZero completionHandler:^(BOOL finished) {
             [weakSelf.delegate playbackComplete];

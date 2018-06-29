@@ -8,17 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MusicNetPlayerControllerDelegate
+@protocol MusicPlayerControllerDelegate
 - (void)setCurrentTime:(NSTimeInterval)time duration:(NSTimeInterval)duration;
 - (void)playbackComplete;
 @end;
 
-@interface MusicNetPlayerController : NSObject
-+(MusicNetPlayerController *)getInstance;
+@interface MusicPlayerController : NSObject
 @property (nonatomic, copy) NSArray *musicDataArray;
 @property (nonatomic, assign) SongStatus songStatus;
 @property (nonatomic, assign) NSUInteger index;//当前播放歌曲的索引值
-@property (nonatomic, weak) id<MusicNetPlayerControllerDelegate> delegate;
+@property (nonatomic, weak) id<MusicPlayerControllerDelegate> delegate;
 - (void)playIndex:(NSUInteger) index;
 - (void)pause;
 - (void)stop;

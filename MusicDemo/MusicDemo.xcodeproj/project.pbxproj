@@ -18,7 +18,7 @@
 		3201C00620E0850600F6344B /* MusicViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3201C00520E0850600F6344B /* MusicViewModel.m */; };
 		3201C00920E0870C00F6344B /* MusicViewLocalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3201C00820E0870C00F6344B /* MusicViewLocalModel.m */; };
 		3201C00B20E096E300F6344B /* by.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3201C00A20E096E300F6344B /* by.mp3 */; };
-		32E3B8E320E21E1E0004E64E /* MusicNetPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E3B8E220E21E1E0004E64E /* MusicNetPlayerController.m */; };
+		32E3B8E320E21E1E0004E64E /* MusicPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E3B8E220E21E1E0004E64E /* MusicPlayerController.m */; };
 		32E3B8E520E48D8A0004E64E /* mo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 32E3B8E420E48D890004E64E /* mo1.jpg */; };
 		32E3B8E720E48D8F0004E64E /* mo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 32E3B8E620E48D8E0004E64E /* mo2.jpg */; };
 		32E3B8E920E4ABC00004E64E /* mo3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 32E3B8E820E4ABC00004E64E /* mo3.jpg */; };
@@ -43,8 +43,8 @@
 		3201C00720E0870C00F6344B /* MusicViewLocalModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicViewLocalModel.h; sourceTree = "<group>"; };
 		3201C00820E0870C00F6344B /* MusicViewLocalModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicViewLocalModel.m; sourceTree = "<group>"; };
 		3201C00A20E096E300F6344B /* by.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = by.mp3; sourceTree = "<group>"; };
-		32E3B8E120E21E1E0004E64E /* MusicNetPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicNetPlayerController.h; sourceTree = "<group>"; };
-		32E3B8E220E21E1E0004E64E /* MusicNetPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicNetPlayerController.m; sourceTree = "<group>"; };
+		32E3B8E120E21E1E0004E64E /* MusicPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicPlayerController.h; sourceTree = "<group>"; };
+		32E3B8E220E21E1E0004E64E /* MusicPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicPlayerController.m; sourceTree = "<group>"; };
 		32E3B8E420E48D890004E64E /* mo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mo1.jpg; sourceTree = "<group>"; };
 		32E3B8E620E48D8E0004E64E /* mo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mo2.jpg; sourceTree = "<group>"; };
 		32E3B8E820E4ABC00004E64E /* mo3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mo3.jpg; sourceTree = "<group>"; };
@@ -114,8 +114,8 @@
 				3201C00520E0850600F6344B /* MusicViewModel.m */,
 				3201C00720E0870C00F6344B /* MusicViewLocalModel.h */,
 				3201C00820E0870C00F6344B /* MusicViewLocalModel.m */,
-				32E3B8E120E21E1E0004E64E /* MusicNetPlayerController.h */,
-				32E3B8E220E21E1E0004E64E /* MusicNetPlayerController.m */,
+				32E3B8E120E21E1E0004E64E /* MusicPlayerController.h */,
+				32E3B8E220E21E1E0004E64E /* MusicPlayerController.m */,
 			);
 			path = MusicDemo;
 			sourceTree = "<group>";
@@ -230,7 +230,7 @@
 				3201C00920E0870C00F6344B /* MusicViewLocalModel.m in Sources */,
 				3201C00320E0840C00F6344B /* MusicData.m in Sources */,
 				3201BFF720DCEE7A00F6344B /* main.m in Sources */,
-				32E3B8E320E21E1E0004E64E /* MusicNetPlayerController.m in Sources */,
+				32E3B8E320E21E1E0004E64E /* MusicPlayerController.m in Sources */,
 				3201BFE920DCEE7800F6344B /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicDemo/MusicViewLocalModel.m"
-            timestampString = "551930755.258352"
+            timestampString = "551931449.599722"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "-getLocalSong:complete:"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicDemo/MusicViewLocalModel.m"
-            timestampString = "551930755.25881"
+            timestampString = "551931449.600113"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "-getLocalSong:complete:"
             landmarkType = "7">
          </BreakpointContent>
@@ -137,11 +137,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicDemo/MusicViewController.m"
-            timestampString = "551930755.2590131"
+            timestampString = "551931449.600309"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "-touchDown"
             landmarkType = "7">
          </BreakpointContent>

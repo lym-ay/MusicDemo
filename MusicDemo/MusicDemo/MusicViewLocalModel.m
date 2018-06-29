@@ -26,21 +26,7 @@
     block(YES);
 }
 
-- (void)getLibrarySong{
-    //    MPMediaQuery *listQuery = [MPMediaQuery playlistsQuery];
-    //    NSArray *playlist = [listQuery collections];
-    //    for (MPMediaPlaylist *list in playlist) {
-    //        NSArray *songs = [list items];
-    //        NSLog(@"songs count is %lu",songs.count);
-    //        for (MPMediaItem *song in songs) {
-    //            MusicData *data =[[MusicData alloc] init];
-    //            data.songName = [song valueForProperty:MPMediaItemPropertyTitle];
-    //            data.songSinger = [song valueForProperty:MPMediaItemPropertyArtist];
-    //            data.songUrl = [[song valueForProperty:MPMediaItemPropertyAssetURL] absoluteString];
-    //            [self.musicDataArray addObject:data];
-    //        }
-    //    }
-}
+
 
 - (void)getNetMusic{
     NSURL *url1 = [NSURL URLWithString:@"http://dl.stream.qqmusic.qq.com/C4000031PqYN0sj8K3.m4a?vkey=7489DD29B94AEF783AEF6F95CFF528DC6F30578D5AF485B0DA5524D6C86BAF2674CD0EB85414F949AF9347250708DEB544381F237BC46291&guid=3708371200&uin=0&fromtag=66"];
