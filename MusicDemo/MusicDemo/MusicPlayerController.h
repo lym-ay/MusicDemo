@@ -12,6 +12,7 @@
 - (void)setCurrentTime:(NSTimeInterval)time duration:(NSTimeInterval)duration;
 - (void)playbackComplete;
 - (void)updatePrograssBar:(NSTimeInterval)time;
+- (void)playError;//播放出错。
 @end;
 
 @interface MusicPlayerController : NSObject

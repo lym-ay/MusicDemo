@@ -50,6 +50,7 @@ static const NSString *PlayerItemStatusContext;
     self.playerItem = [AVPlayerItem playerItemWithAsset:asset automaticallyLoadedAssetKeys:keys];
     self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
     self.player.volume = 0.3;
+    //添加键盘
     [self.playerItem addObserver:self forKeyPath:@"status" options:0 context:&PlayerItemStatusContext];
     [self.playerItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
     [self.playerItem addObserver:self forKeyPath:@"playbackBufferEmpty" options:NSKeyValueObservingOptionNew context:nil];
@@ -66,7 +67,7 @@ static const NSString *PlayerItemStatusContext;
     
     if ([keyPath isEqualToString:@"status"]) {
         
-      // [self.playerItem removeObserver:self forKeyPath:@"status"];
+     
         
             if (self.playerItem.status == AVPlayerItemStatusReadyToPlay) {
                 
@@ -87,6 +88,7 @@ static const NSString *PlayerItemStatusContext;
                 
             } else if ([self.playerItem status] == AVPlayerStatusFailed || [self.playerItem status] == AVPlayerStatusUnknown) {
                 [_player pause];
+                [self.delegate playError];
             }
         }else if ([keyPath isEqualToString:@"loadedTimeRanges"]) {  //监听播放器的下载进度
             //[self.playerItem removeObserver:self forKeyPath:@"status"];
@@ -217,6 +219,10 @@ static const NSString *PlayerItemStatusContext;
 
 - (void)seekEnd{
     [self addPlayerItemTimeObserver];
+}
+
+- (void)dealloc{
+    [self removeAllObservers];
 }
 
 
