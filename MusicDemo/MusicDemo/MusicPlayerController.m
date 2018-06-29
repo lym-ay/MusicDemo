@@ -51,6 +51,9 @@ static const NSString *PlayerItemStatusContext;
     self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
     self.player.volume = 0.3;
     [self.playerItem addObserver:self forKeyPath:@"status" options:0 context:&PlayerItemStatusContext];
+    [self.playerItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
+    [self.playerItem addObserver:self forKeyPath:@"playbackBufferEmpty" options:NSKeyValueObservingOptionNew context:nil];
+    [self.playerItem addObserver:self forKeyPath:@"playbackLikelyToKeepUp" options:NSKeyValueObservingOptionNew context:nil];
     _songStatus = PlayStatus;
     
 }
@@ -61,38 +64,68 @@ static const NSString *PlayerItemStatusContext;
                        context:(void *)context {
 
     
-    if (context == &PlayerItemStatusContext) {
+    if ([keyPath isEqualToString:@"status"]) {
         
-        dispatch_async(dispatch_get_main_queue(), ^{                        // 1
-
-            [self.playerItem removeObserver:self forKeyPath:@"status"];
-
+      // [self.playerItem removeObserver:self forKeyPath:@"status"];
+        
             if (self.playerItem.status == AVPlayerItemStatusReadyToPlay) {
-
+                
                 // Set up time observers.                                   // 2
                 [self addPlayerItemTimeObserver];
                 [self addItemEndObserverForPlayerItem];
-
+                
                 CMTime duration = self.playerItem.duration;
-
+                
                 // Synchronize the time display                             // 3
                 [self.delegate setCurrentTime:CMTimeGetSeconds(kCMTimeZero)
-                                      duration:CMTimeGetSeconds(duration)];
-
-
+                                     duration:CMTimeGetSeconds(duration)];
+                
+                
                 [self.player play];                                         // 5
-
-
-
-            } else {
-                NSLog(@"observe error");
+                
+                
+                
+            } else if ([self.playerItem status] == AVPlayerStatusFailed || [self.playerItem status] == AVPlayerStatusUnknown) {
+                [_player pause];
             }
-        });
+        }else if ([keyPath isEqualToString:@"loadedTimeRanges"]) {  //监听播放器的下载进度
+            //[self.playerItem removeObserver:self forKeyPath:@"status"];
+            NSArray *loadedTimeRanges = [self.playerItem loadedTimeRanges];
+            CMTimeRange timeRange = [loadedTimeRanges.firstObject CMTimeRangeValue];// 获取缓冲区域
+            float startSeconds = CMTimeGetSeconds(timeRange.start);
+            float durationSeconds = CMTimeGetSeconds(timeRange.duration);
+            NSTimeInterval timeInterval = startSeconds + durationSeconds;// 计算缓冲总进度
+            CMTime duration = self.playerItem.duration;
+            NSTimeInterval totalDuration = CMTimeGetSeconds(duration);
+            NSTimeInterval progressTime = timeInterval / totalDuration;
+            NSLog(@"下载进度：%.2f", timeInterval);
+            [self.delegate updatePrograssBar:progressTime];
+            
+        } else if ([keyPath isEqualToString:@"playbackBufferEmpty"]) { //监听播放器在缓冲数据的状态
+            
+            NSLog(@"缓冲不足暂停了");
+            
+            
+        } else if ([keyPath isEqualToString:@"playbackLikelyToKeepUp"]) {
+            
+            NSLog(@"缓冲达到可播放程度了");
+            
+            //由于 AVPlayer 缓存不足就会自动暂停，所以缓存充足了需要手动播放，才能继续播放
+            [_player play];
+            
+        }
+
+
         
        
-    }
+     
 }
 
+
+
+/**
+ 实时监控播放的进度
+ */
 - (void)addPlayerItemTimeObserver{
     CMTime interval = CMTimeMakeWithSeconds(1,  NSEC_PER_SEC);
     dispatch_queue_t queue = dispatch_get_main_queue();
@@ -107,6 +140,10 @@ static const NSString *PlayerItemStatusContext;
    self.timeObserver =  [self.player addPeriodicTimeObserverForInterval:interval queue:queue usingBlock:callback];
 }
 
+
+/**
+ 当播放完毕的时候回调
+ */
 - (void)addItemEndObserverForPlayerItem{
     NSString *name = AVPlayerItemDidPlayToEndTimeNotification;
     NSOperationQueue *queue = [NSOperationQueue mainQueue];

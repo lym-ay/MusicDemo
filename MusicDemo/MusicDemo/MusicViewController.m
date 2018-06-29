@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *eclipseTime;
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
 @property (weak, nonatomic) IBOutlet UISlider *sliderButton;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 
 @property (strong, nonatomic) MusicPlayerController *musicPlayer;
 
@@ -34,6 +35,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self.sliderButton setThumbImage:[UIImage imageNamed:@"nail"] forState:UIControlStateNormal];
+   
+    
     _viewModel = [[MusicViewLocalModel alloc] init];
     self.musicPlayer = [[MusicPlayerController alloc] init];
     self.musicPlayer.delegate = self;
@@ -183,7 +188,15 @@
 
 - (void)playbackComplete{
     [self.musicPlayer nextSong];
-    [self updateUI];
+    dispatch_async(dispatch_get_main_queue(), ^{
+         [self updateUI];
+    });
+}
+
+- (void)updatePrograssBar:(NSTimeInterval)time{
+     dispatch_async(dispatch_get_main_queue(), ^{
+         [self.progressBar setProgress:time animated:YES];
+     });
 }
 
 

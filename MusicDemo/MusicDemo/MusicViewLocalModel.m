@@ -29,6 +29,17 @@
 
 
 - (void)getNetMusic{
+    NSURL *url3 = [NSURL URLWithString:@"http://dl.stream.qqmusic.qq.com/C400004MnWHW4IdbcT.m4a?vkey=89969EAF699E8D6AC50CF72FE5B56FF4411C999CCC177213B204384A68B311AF9B7CA9251A93B1A4B96949A204A1B25A0CBBAC831FBD1C06&guid=9611377172&uin=0&fromtag=66"];
+    MusicData *data3 = [[MusicData alloc] init];
+    data3.songName =@"如果你是李白";
+    data3.songSinger = @"莫文蔚";
+    data3.songUrl = url3;
+    data3.songAlbum = @"[i]";
+    NSString *picPath3 = [[NSBundle mainBundle] pathForResource:@"mo3" ofType:@"jpg"];
+    UIImage *img3 = [UIImage imageNamed:picPath3];
+    data3.songImage = img3;
+    [self.musicDataArray addObject:data3];
+    
     NSURL *url1 = [NSURL URLWithString:@"http://dl.stream.qqmusic.qq.com/C4000031PqYN0sj8K3.m4a?vkey=7489DD29B94AEF783AEF6F95CFF528DC6F30578D5AF485B0DA5524D6C86BAF2674CD0EB85414F949AF9347250708DEB544381F237BC46291&guid=3708371200&uin=0&fromtag=66"];
     MusicData *data1 = [[MusicData alloc] init];
     data1.songName =@"阴天";
@@ -50,16 +61,7 @@
     data2.songImage = img2;
     [self.musicDataArray addObject:data2];
     
-    NSURL *url3 = [NSURL URLWithString:@"http://dl.stream.qqmusic.qq.com/C400004MnWHW4IdbcT.m4a?vkey=89969EAF699E8D6AC50CF72FE5B56FF4411C999CCC177213B204384A68B311AF9B7CA9251A93B1A4B96949A204A1B25A0CBBAC831FBD1C06&guid=9611377172&uin=0&fromtag=66"];
-    MusicData *data3 = [[MusicData alloc] init];
-    data3.songName =@"如果你是李白";
-    data3.songSinger = @"莫文蔚";
-    data3.songUrl = url3;
-    data3.songAlbum = @"[i]";
-    NSString *picPath3 = [[NSBundle mainBundle] pathForResource:@"mo3" ofType:@"jpg"];
-    UIImage *img3 = [UIImage imageNamed:picPath3];
-    data3.songImage = img3;
-    [self.musicDataArray addObject:data3];
+   
     
     
      

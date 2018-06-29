@@ -11,6 +11,7 @@
 @protocol MusicPlayerControllerDelegate
 - (void)setCurrentTime:(NSTimeInterval)time duration:(NSTimeInterval)duration;
 - (void)playbackComplete;
+- (void)updatePrograssBar:(NSTimeInterval)time;
 @end;
 
 @interface MusicPlayerController : NSObject
