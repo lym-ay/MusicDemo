@@ -74,6 +74,19 @@
     UIImage *img3 = [UIImage imageNamed:picPath3];
     data3.songImage = img3;
     [self.musicDataArray addObject:data3];
+    
+    
+     
+    NSURL *url4 = [[NSBundle mainBundle] URLForResource:@"by" withExtension:@"mp3"];
+    MusicData *data4= [[MusicData alloc] init];
+    data4.songName =@"冰雨";
+    data4.songSinger = @"刘德华";
+    data4.songUrl = url4;
+    data4.songAlbum = @"2012世界巡回演唱会";
+    //NSString *picPath4 = [[NSBundle mainBundle] pathForResource:@"mo3" ofType:@"jpg"];
+    //UIImage *img3 = [UIImage imageNamed:picPath3];
+    //data3.songImage = img3;
+    [self.musicDataArray addObject:data4];
 }
 - (void)getLocalSong:(NSString *)name complete:(completeSearch)block{
    

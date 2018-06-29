@@ -12,7 +12,9 @@
 #import "MusicPlayerController.h"
 #import "MusicNetPlayerController.h"
 
-@interface MusicViewController ()<MusicNetPlayerControllerDelegate>
+@interface MusicViewController ()<MusicNetPlayerControllerDelegate>{
+    BOOL isSeek;
+}
 @property (nonatomic, strong) MusicViewModel *viewModel;
 @property (weak, nonatomic) IBOutlet UILabel *songName;
 @property (weak, nonatomic) IBOutlet UILabel *songSingerAlbum;
@@ -23,9 +25,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
 @property (weak, nonatomic) IBOutlet UISlider *sliderButton;
 
-@property (strong, nonatomic) NSTimer *timer;
-
 @property (strong, nonatomic) MusicNetPlayerController *musicPlayer;
+
 
 
 
@@ -103,23 +104,15 @@
         [_songPic setImage:[UIImage imageNamed:@"songpic"]];
     }
  
-    _totalTimeLabel.text = [self duration];
+   
     
-//    _sliderButton.maximumValue = self.musicPlayer.duration;
-//    _sliderButton.minimumValue = 0;
+ 
     
     
-    //启动计时器
-    //[self.timer setFireDate:[NSDate distantPast]];
+ 
 }
 
-- (NSTimer *)timer{
-    if (!_timer) {
-        _timer = [NSTimer scheduledTimerWithTimeInterval:0 target:self
-                                                selector:@selector(timerAction) userInfo:nil repeats:YES];
-        [_timer setFireDate:[NSDate distantFuture]];//在创建计时器的时候把计时器先暂停。
-    }return _timer;
-}
+
 
 
 
@@ -152,67 +145,46 @@
     
 }
 
-- (NSString*)duration{
-//    NSTimeInterval totalTime = self.musicPlayer.duration;
-//    NSInteger min = totalTime/60;
-//    NSInteger sec = (NSInteger)totalTime%60;
-//
-//    return [NSString stringWithFormat:@"%02ld:%02ld",min,sec];
-    return nil;
-    
-}
-
-- (NSString *)currentTime{
-//    NSTimeInterval curTime = self.musicPlayer.currentTime;
-//    NSInteger min = curTime/60;
-//    NSInteger sec = (NSInteger)curTime%60;
-//    return [NSString stringWithFormat:@"%02ld:%02ld",min,sec];
-    return nil;
-}
 
 
-- (void)timerAction{
-//    self.eclipseTime.text = [self currentTime];
-//    self.sliderButton.value = self.musicPlayer.currentTime;
-    
-}
+
 
 - (void)touchUp{
-    //[self.timer setFireDate:[NSDate distantFuture]];//暂停定时器
-    //[self.timer invalidate];
     NSTimeInterval curTime = _sliderButton.value;
     NSInteger min = curTime/60;
     NSInteger sec = (NSInteger)curTime%60;
     _eclipseTime.text = [NSString stringWithFormat:@"%02ld:%02ld",min,sec];
+    
     [self.musicPlayer seekStart];
 }
 
 - (void)touchDown{
     if (self.musicPlayer.songStatus == PlayStatus) {
-        //self.musicPlayer.currentTime = _sliderButton.value;
-        //[self.timer setFireDate:[NSDate distantPast]];
-        //NSLog(@"slider buuton is %f",_sliderButton.value);
         [self.musicPlayer seekToTime:_sliderButton.value];
         [self.musicPlayer seekEnd];
+        
     }
 }
 
 - (void)setCurrentTime:(NSTimeInterval)time duration:(NSTimeInterval)duration{
-    NSTimeInterval totalTime = duration;
-    NSInteger min = totalTime/60;
-    NSInteger sec = (NSInteger)totalTime%60;
-    self.totalTimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld",min,sec];
-    
-    self.sliderButton.maximumValue= duration;
-    self.sliderButton.minimumValue = 0;
-    self.sliderButton.value = time;
-    NSLog(@"time is %f",self.sliderButton.value);
-    
-    
-    NSTimeInterval curTime = time;
-    NSInteger min1 = curTime/60;
-    NSInteger sec1 = (NSInteger)curTime%60;
-    self.eclipseTime.text =  [NSString stringWithFormat:@"%02ld:%02ld",min1,sec1];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSTimeInterval totalTime = duration;
+        NSInteger min = totalTime/60;
+        NSInteger sec = (NSInteger)totalTime%60;
+        self.totalTimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld",min,sec];
+        
+        self.sliderButton.maximumValue= duration;
+        self.sliderButton.minimumValue = 0;
+        self.sliderButton.value = time;
+        //NSLog(@"time is %f",self.sliderButton.value);
+        
+        
+        NSTimeInterval curTime = time;
+        NSInteger min1 = curTime/60;
+        NSInteger sec1 = (NSInteger)curTime%60;
+        self.eclipseTime.text =  [NSString stringWithFormat:@"%02ld:%02ld",min1,sec1];
+        
+    });
    
     
 }
