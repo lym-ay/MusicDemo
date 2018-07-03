@@ -29,6 +29,14 @@
 
 
 - (void)getNetMusic{
+    NSURL *url4 = [[NSBundle mainBundle] URLForResource:@"by" withExtension:@"mp3"];
+    MusicData *data4= [[MusicData alloc] init];
+    data4.songName =@"冰雨";
+    data4.songSinger = @"刘德华";
+    data4.songUrl = url4;
+    data4.songAlbum = @"2012世界巡回演唱会";
+    [self.musicDataArray addObject:data4];
+    
     NSURL *url1 = [NSURL URLWithString:@"http://dl.stream.qqmusic.qq.com/C4000031PqYN0sj8K3.m4a?vkey=DA49B554D1AA5AD9EB677E8CF0F8A71DB761EEFE97DD67998E37E4DF810BBD13F065CA58D4311365B5FA77AF5D18263B1DEA6C6AACA8BA00&guid=4589218520&uin=0&fromtag=66"];
     MusicData *data1 = [[MusicData alloc] init];
     data1.songName =@"阴天";
@@ -67,16 +75,7 @@
     
     
      
-    NSURL *url4 = [[NSBundle mainBundle] URLForResource:@"by" withExtension:@"mp3"];
-    MusicData *data4= [[MusicData alloc] init];
-    data4.songName =@"冰雨";
-    data4.songSinger = @"刘德华";
-    data4.songUrl = url4;
-    data4.songAlbum = @"2012世界巡回演唱会";
-    //NSString *picPath4 = [[NSBundle mainBundle] pathForResource:@"mo3" ofType:@"jpg"];
-    //UIImage *img3 = [UIImage imageNamed:picPath3];
-    //data3.songImage = img3;
-    [self.musicDataArray addObject:data4];
+   
 }
 - (void)getLocalSong:(NSString *)name complete:(completeSearch)block{
    

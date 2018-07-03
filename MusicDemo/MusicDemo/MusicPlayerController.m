@@ -121,14 +121,14 @@ static const NSString *PlayerItemStatusContext;
 }
 
 - (void)removeAllObservers{
-   if (self.timeObserver) {
-        [self.playerItem removeObserver:self forKeyPath:@"status"];
-        [self.playerItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
-        [self.playerItem removeObserver:self forKeyPath:@"playbackBufferEmpty"];
-        [self.playerItem removeObserver:self forKeyPath:@"playbackLikelyToKeepUp"];
-        [self.player removeTimeObserver:self.timeObserver];
-        self.timeObserver = nil;
-    }
+    
+    [self.playerItem removeObserver:self forKeyPath:@"status"];
+    [self.playerItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
+    [self.playerItem removeObserver:self forKeyPath:@"playbackBufferEmpty"];
+    [self.playerItem removeObserver:self forKeyPath:@"playbackLikelyToKeepUp"];
+    [self.player removeTimeObserver:self.timeObserver];
+    self.timeObserver = nil;
+    
     
     
 }
